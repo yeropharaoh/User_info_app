@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+	body
+		h1 this index page has all the user info displayed below
+		//- p= Users
+		each user in Users
+			li This user's first name is #{user.firstname}
+			li This user's last name is #{user.lastname}
+			li This user's email is #{user.email}

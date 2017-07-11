@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+	body
+		h1 Search for users below
+			form(method='post' action='/search')
+				label(for='search') Search: 
+				br
+				input(type='text', name='search')
+			button.btn.btn-primary(type='submit') Submit
+
+
+		//- a(href='users') show all users
+		//- br
+		//- a(href='users/new') create new user
