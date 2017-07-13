@@ -3,14 +3,14 @@ html
 	head
 	body
 		h1 Fill this form in mayne
-			form(method='post' action='/form')
+			form(method='post' action='/forminfo')
 				label(for='fname') First Name:
 				input(type='text', placeholder='John, Mary etc.' name='fname')
 				label(for='lname') Last Name:
 				input#name.form-control(type='text', placeholder='Smoth, van Cool etc.' name='lname')
 				label(for='email') Email:
 				input#name.form-control(type='email', placeholder='vanCool@cool.net etc.' name='email')
-			button.btn.btn-primary(type='submit') Submit
+				button.btn.btn-primary(type='submit') Submit
 
 
 		//- a(href='users') show all users

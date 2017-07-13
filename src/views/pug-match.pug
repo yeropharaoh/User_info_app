@@ -4,7 +4,7 @@ html
 	body
 		h1 Results:
 		br
-		if Users === undefined
-			p No match found! Sorry, try again.
+		if Users 
+			p We found who you were looking for!  It's #{Users.firstname} #{Users.lastname}
 		else
-			p We found who you were looking for! #{Users}
+			p No match found! Sorry, try again. 
