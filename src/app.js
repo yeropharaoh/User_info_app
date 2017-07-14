@@ -6,7 +6,7 @@ var app = express()
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/", bodyParser.urlencoded({ extended: true }));
 
 //Part 0
 app.get('/', function(req, res) {
@@ -61,10 +61,13 @@ app.post('/forminfo', function(req, res) {
         }
 
         var parsedData = JSON.parse(data);
-        var newUserData = req.body;
+        var newUserData = {firstname: req.body.fname,
+                            lastname: req.body.lname,
+                            email: req.body.email
+                            } 
 
         parsedData.push(newUserData);
-        console.log(parsedData);
+        console.log(newUserData);
 
         var completeusers = JSON.stringify(parsedData);
         console.log(completeusers);

@@ -2,7 +2,7 @@ doctype html
 html
 	head
 	body
-		h1 Fill this form in mayne
+		h1 Fill this form 
 			form(method='post' action='/forminfo')
 				label(for='fname') First Name:
 				input(type='text', placeholder='John, Mary etc.' name='fname')
@@ -11,8 +11,15 @@ html
 				label(for='email') Email:
 				input#name.form-control(type='email', placeholder='vanCool@cool.net etc.' name='email')
 				button.btn.btn-primary(type='submit') Submit
+	br
+			
+	a(href='/') ALL USERS
+	|
+	|
 
+	br
+	br
 
-		//- a(href='users') show all users
-		//- br
-		//- a(href='users/new') create new user
+	a(href='/search') SEARCH
+	|
+	|	
