@@ -8,6 +8,20 @@ app.set('view engine', 'pug');
 
 app.use("/", bodyParser.urlencoded({ extended: true }));
 
+
+//PART 1 AJAX!
+app.get('/allusers', function (req, res) {
+    fs.readFile('../users.json', function (error, data) {
+            if (error) {
+            throw error;
+            }
+        var parsedData = JSON.parse(data);
+        console.log(parsedData)
+        res.send({users: parsedData})
+    });
+});
+
+
 //Part 0
 app.get('/', function(req, res) {
     fs.readFile('../users.json', function(error, data) {

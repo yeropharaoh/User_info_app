@@ -1,14 +1,49 @@
 doctype html
 html
 	head
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+
+		script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
 	body
+		
 		h1 Search for users below
 			form(method='post' action='/match')
-				label(for='search') Search: 
-				br
-				input(type='text', name='search')
+				div(class="ui-widget")
+					label(for='search') Search: 
+					br
+					input#provider-json(type='text', name='search')
 				button.btn.btn-primary(type='submit') Submit
-	br
+
+		br
+		
+		
+		script.
+			
+			$("#provider-json").keyup(function() {
+			setTimeout(function(){
+			$.get('/allusers', function(response) {
+						console.log(Date.now());
+						var usersArray = [];
+						var users = response.users;
+						function pushNames(){
+						for(var i = 0; i <users.length; i++) {
+							usersArray.push(users[i].firstname);
+							usersArray.push(users[i].lastname);
+						};
+						};
+					
+						pushNames();
+						console.log(usersArray);
+						$("#provider-json").autocomplete({
+							source: usersArray,
+							minLength: 2
+							});
+							});
+							}, 3000)
+						});
+							
 			
 	a(href='/') ALL USERS
 	|
@@ -19,4 +54,4 @@ html
 
 	a(href='/form') SUBSCRIPTION FORM
 	|
-	|					
+	|                   
