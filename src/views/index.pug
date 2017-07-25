@@ -1,6 +1,7 @@
 doctype html
 html
 	head
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
 	body
 		h1 All the Users info is displayed below
 		//- p= Users
@@ -20,3 +21,10 @@ html
 	a(href='/form') SUBSCRIPTION FORM
 	|
 	|
+
+	script.
+			$("#goButton").click(function() {
+				var fileData = {
+					name: $("#filename").val(),
+					contents: $("#fileContents").val()
+				};
